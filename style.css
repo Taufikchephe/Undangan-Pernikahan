@@ -1,0 +1,414 @@
+/* Reset & Variabel Warna Tema */
+:root {
+  --primary: #c5a059; /* Gold Elegan */
+  --primary-dark: #9d7c38;
+  --bg-color: #faf8f5; /* Warm White */
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-script: 'Alex Brush', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #2b2b2b; /* Latar belakang luar kontainer saat di layar desktop */
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Kunci Lebar Tampilan Mobile */
+.main-container {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* LAYAR COVER AWAL */
+.cover-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+              url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80') center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  z-index: 999;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.cover-screen.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cover-content {
+  padding: 24px;
+}
+
+.cover-content .sub-title {
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.couple-name {
+  font-family: var(--font-script);
+  font-size: 3.5rem;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.guest-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.guest-box p {
+  font-size: 0.8rem;
+  color: #e0e0e0;
+}
+
+.guest-box h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Tombol Musik Mengambang */
+.music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.spin {
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(359deg); }
+}
+
+/* SECTIONS */
+.section {
+  padding: 50px 24px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.hero {
+  padding-top: 70px;
+  background: linear-gradient(180deg, #f3ede2 0%, var(--bg-color) 100%);
+}
+
+.hero .greeting {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+
+.title-serif {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: var(--primary-dark);
+  margin: 8px 0;
+}
+
+.date-hero {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.quote-section {
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.quote-source {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Mempelai */
+.avatar-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #f1ebd9;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 2.2rem;
+  border: 2px solid var(--primary);
+}
+
+.profile-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+.profile-card .parents {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.divider-ampersand {
+  font-family: var(--font-script);
+  font-size: 3rem;
+  color: var(--primary);
+  margin: 16px 0;
+}
+
+/* Countdown */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.time-box {
+  background: var(--card-bg);
+  padding: 12px 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eedec3;
+}
+
+.time-box span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.time-box small {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Card Acara & Hadiah */
+.card, .bank-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0e6d6;
+}
+
+.card-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.card .address {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 8px 0 16px;
+}
+
+.bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+}
+
+.account-num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.account-name {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* Tombol */
+.btn-primary, .btn-outline, .btn-copy {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-outline {
+  border: 1px solid var(--primary);
+  color: var(--primary-dark);
+  background: transparent;
+}
+
+.btn-copy {
+  background-color: #f7f3ea;
+  border: 1px dashed var(--primary);
+  color: var(--primary-dark);
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Form RSVP */
+.rsvp-form {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.wishes-container {
+  margin-top: 24px;
+  text-align: left;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.wish-item {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.wish-item h5 {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: normal;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #eee;
+}
+
+.badge.hadir { background: #e2f7e2; color: #1e7e34; }
+.badge.ragu { background: #fff3cd; color: #856404; }
+.badge.tidak { background: #f8d7da; color: #721c24; }
+
+.wish-item p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.footer {
+  padding: 40px 24px;
+  text-align: center;
+  background: #f1ebd9;
+}
+
+.couple-footer {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+}

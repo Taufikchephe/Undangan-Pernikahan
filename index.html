@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wedding of Romeo & Juliet</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Musik Latar (Ganti URL file mp3 bila perlu) -->
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Tombol Play/Pause Musik Mengambang -->
+  <button id="music-toggle" class="music-btn" aria-label="Toggle Music">
+    <i class="fa-solid fa-compact-disc spin"></i>
+  </button>
+
+  <!-- HALAMAN SAMPUL / COVER (Layar Awal) -->
+  <div id="cover" class="cover-screen">
+    <div class="cover-content">
+      <p class="sub-title">THE WEDDING OF</p>
+      <h1 class="couple-name">Romeo & Juliet</h1>
+      <div class="guest-box">
+        <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+        <h3 id="guest-name">Tamu Undangan</h3>
+      </div>
+      <button id="btn-open" class="btn-primary">
+        <i class="fa-regular fa-envelope-open"></i> Buka Undangan
+      </button>
+    </div>
+  </div>
+
+  <!-- ISI UTAMA UNDANGAN -->
+  <main class="main-container">
+    
+    <!-- Hero Section -->
+    <section class="section hero">
+      <p class="greeting">WALIMATUL 'URS</p>
+      <h2 class="title-serif">Romeo & Juliet</h2>
+      <p class="date-hero">Minggu, 12 Desember 2027</p>
+    </section>
+
+    <!-- Kutipan / Ayat -->
+    <section class="section quote-section">
+      <p class="quote">
+        "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+      </p>
+      <span class="quote-source">— QS. Ar-Rum: 21</span>
+    </section>
+
+    <!-- Profil Mempelai -->
+    <section class="section couple-section">
+      <h3 class="section-title">Mempelai</h3>
+      
+      <div class="profile-card">
+        <div class="avatar-circle">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <h4>Romeo Pratama, S.T.</h4>
+        <p>Putra Pertama dari</p>
+        <p class="parents">Bpk. Bambang & Ibu Siti</p>
+      </div>
+
+      <div class="divider-ampersand">&</div>
+
+      <div class="profile-card">
+        <div class="avatar-circle">
+          <i class="fa-solid fa-person-dress"></i>
+        </div>
+        <h4>Juliet Anggraini, S.Kom.</h4>
+        <p>Putri Kedua dari</p>
+        <p class="parents">Bpk. Hendra & Ibu Rina</p>
+      </div>
+    </section>
+
+    <!-- Acara & Countdown -->
+    <section class="section event-section">
+      <h3 class="section-title">Waktu & Tempat</h3>
+      
+      <!-- Widget Hitung Mundur -->
+      <div id="countdown" class="countdown-grid">
+        <div class="time-box"><span id="days">00</span><small>Hari</small></div>
+        <div class="time-box"><span id="hours">00</span><small>Jam</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>Menit</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>Detik</small></div>
+      </div>
+
+      <!-- Jadwal Akad & Resepsi -->
+      <div class="event-cards">
+        <div class="card">
+          <i class="fa-solid fa-ring card-icon"></i>
+          <h4>Akad Nikah</h4>
+          <p><i class="fa-regular fa-clock"></i> 08.00 - 10.00 WIB</p>
+          <p>Masjid Agung Kota</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-champagne-glasses card-icon"></i>
+          <h4>Resepsi</h4>
+          <p><i class="fa-regular fa-clock"></i> 11.00 - 14.00 WIB</p>
+          <p>Grand Ballroom Hotel Cempaka</p>
+          <p class="address">Jl. Malioboro No. 45, Yogyakarta</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-outline">
+            <i class="fa-solid fa-location-dot"></i> Buka Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Amplop Digital / Hadiah -->
+    <section class="section gift-section">
+      <h3 class="section-title">Kado Digital</h3>
+      <p class="gift-desc">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika ingin memberikan tanda kasih secara digital, Anda dapat melalui:</p>
+      
+      <div class="bank-card">
+        <div class="bank-header">
+          <span class="bank-name">BANK BCA</span>
+          <i class="fa-regular fa-credit-card"></i>
+        </div>
+        <p class="account-num" id="rekening-bca">1234567890</p>
+        <p class="account-name">a.n Romeo Pratama</p>
+        <button class="btn-copy" onclick="salinRekening('rekening-bca')">
+          <i class="fa-regular fa-copy"></i> Salin Nomor Rekening
+        </button>
+      </div>
+
+      <div class="bank-card">
+        <div class="bank-header">
+          <span class="bank-name">BANK MANDIRI</span>
+          <i class="fa-regular fa-credit-card"></i>
+        </div>
+        <p class="account-num" id="rekening-mandiri">9876543210</p>
+        <p class="account-name">a.n Juliet Anggraini</p>
+        <button class="btn-copy" onclick="salinRekening('rekening-mandiri')">
+          <i class="fa-regular fa-copy"></i> Salin Nomor Rekening
+        </button>
+      </div>
+    </section>
+
+    <!-- Buku Tamu & RSVP -->
+    <section class="section rsvp-section">
+      <h3 class="section-title">Buku Tamu & RSVP</h3>
+      
+      <form id="rsvp-form" class="rsvp-form">
+        <div class="form-group">
+          <label for="rsvp-name">Nama Anda</label>
+          <input type="text" id="rsvp-name" required placeholder="Tuliskan nama Anda" />
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-status">Konfirmasi Kehadiran</label>
+          <select id="rsvp-status" required>
+            <option value="Hadir">Ya, Saya akan Hadir</option>
+            <option value="Ragu-ragu">Masih Ragu-ragu</option>
+            <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-message">Ucapan & Doa</label>
+          <textarea id="rsvp-message" rows="3" required placeholder="Tuliskan doa restu untuk kedua mempelai..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary full-width">Kirim Ucapan</button>
+      </form>
+
+      <!-- Daftar Ucapan -->
+      <div id="wishes-list" class="wishes-container"></div>
+    </section>
+
+    <footer class="footer">
+      <p>Terima Kasih</p>
+      <h4 class="couple-footer">Romeo & Juliet</h4>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
