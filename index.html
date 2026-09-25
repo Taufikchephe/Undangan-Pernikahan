@@ -8,16 +8,17 @@
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Musik Gending / Instrumental Akustik -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mp3">
+  <!-- Musik Latar (Otomatis mulai di detik ke-56: bagian refrein "Di situlah mengapa...") -->
+  <!-- Tips: Jika punya file mp3 sendiri di folder proyek, ganti src menjadi: src="lagu.mp3#t=56" -->
+  <audio id="bg-music" preload="auto">
+    <source src="Llagu.mp3" type="audio/mp3">
   </audio>
 
   <!-- Tombol Musik Mengambang -->
@@ -29,9 +30,11 @@
   <div id="cover" class="cover-screen">
     <div class="cover-content">
       
-      <!-- Monogram Inisial T & A -->
+      <!-- Simbol Monogram T & A yang Jelas & Tegas -->
       <div class="monogram-badge">
-        <span class="monogram-text">T &amp; A</span>
+        <span class="monogram-char">T</span>
+        <span class="monogram-amp">&amp;</span>
+        <span class="monogram-char">A</span>
       </div>
 
       <p class="sub-title">UNDANGAN SYUKURAN PERNIKAHAN</p>
@@ -53,53 +56,54 @@
   <main class="main-container">
     
     <!-- Hero / Tajuk Utama -->
-    <section class="section hero">
-      <!-- Monogram Sekunder -->
+    <section class="section hero anim-scroll">
       <div class="monogram-inline">
         <span>T &amp; A</span>
       </div>
 
+      <!-- Gambar Rumah Joglo Kartun -->
       <div class="joglo-wrapper">
-        <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcT7JM6onU-Y2dfYP3v0xe2gZSaD4IRTMa3gvDf8eyjG0z2eWr6Mrdf6ltD770fnFxLUubJFdEzotus9oxE" alt="Pendopo Rumah Joglo Tradisional Yogyakarta" class="joglo-hero-img" />
+        <img src="https://static.vecteezy.com/system/resources/previews/038/450/604/non_2x/rumah-joglo-traditional-central-java-indonesia-house-cartoon-hand-drawn-illustration-free-vector.jpg" alt="Ilustrasi Rumah Joglo Tradisional Yogyakarta Kartun" class="joglo-hero-img" />
       </div>
+
       <p class="greeting">WALIMATUL 'URS</p>
       <h2 class="title-serif">Taufik &amp; Ayuk</h2>
       <p class="date-hero">Kamis, 26 November 2026</p>
     </section>
 
-    <!-- Kutipan -->
-    <section class="section quote-section">
+    <!-- Kutipan / Ayat -->
+    <section class="section quote-section anim-scroll">
       <p class="quote">
         "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
       </p>
       <span class="quote-source">— QS. Ar-Rum: 21</span>
     </section>
 
-    <!-- Mempelai -->
-    <section class="section couple-section">
+    <!-- Profil Mempelai -->
+    <section class="section couple-section anim-scroll">
       <h3 class="section-title">Mempelai</h3>
       
-      <div class="profile-card">
+      <div class="profile-card anim-scroll">
         <h4>Taufik Chryswantoro Putro</h4>
         <p class="role-desc">Putra dari Pasangan</p>
         <p class="parents">Bapak Joko &amp; Ibu Eny</p>
       </div>
 
-      <div class="divider-gunungan">❦</div>
+      <div class="divider-gunungan anim-scroll">❦</div>
 
-      <div class="profile-card">
+      <div class="profile-card anim-scroll">
         <h4>Tri Rahayu (Ayuk)</h4>
         <p class="role-desc">Putri dari Pasangan</p>
         <p class="parents">Bapak Sutopo &amp; Ibu Istiqomah</p>
       </div>
     </section>
 
-    <!-- Waktu & Tempat Acara -->
-    <section class="section event-section">
+    <!-- Rangkaian Acara & Countdown -->
+    <section class="section event-section anim-scroll">
       <h3 class="section-title">Rangkaian Acara</h3>
       
-      <!-- Hitung Mundur Menuju 26 November 2026 -->
-      <div id="countdown" class="countdown-grid">
+      <!-- Widget Hitung Mundur -->
+      <div id="countdown" class="countdown-grid anim-scroll">
         <div class="time-box"><span id="days">00</span><small>Hari</small></div>
         <div class="time-box"><span id="hours">00</span><small>Jam</small></div>
         <div class="time-box"><span id="minutes">00</span><small>Menit</small></div>
@@ -108,7 +112,7 @@
 
       <div class="event-cards">
         <!-- Akad Nikah -->
-        <div class="card">
+        <div class="card anim-scroll">
           <div class="icon-circle"><i class="fa-solid fa-ring"></i></div>
           <h4>Akad Nikah</h4>
           <p class="time-text"><i class="fa-regular fa-clock"></i> 09.00 - 10.00 WIB</p>
@@ -117,7 +121,7 @@
         </div>
 
         <!-- Resepsi / Syukuran -->
-        <div class="card highlight-card">
+        <div class="card highlight-card anim-scroll">
           <div class="icon-circle"><i class="fa-solid fa-house-chimney"></i></div>
           <h4>Syukuran Pernikahan</h4>
           <p class="time-text"><i class="fa-regular fa-clock"></i> 11.30 - 13.00 WIB</p>
@@ -130,8 +134,8 @@
       </div>
     </section>
 
-    <!-- Catatan Tanpa Amplop / Tali Asih -->
-    <section class="section blessing-note-section">
+    <!-- Catatan Doa Restu & Tanpa Tali Asih -->
+    <section class="section blessing-note-section anim-scroll">
       <div class="blessing-card">
         <i class="fa-solid fa-hands-praying blessing-icon"></i>
         <h4>Ungkapan Terima Kasih</h4>
@@ -145,10 +149,10 @@
     </section>
 
     <!-- RSVP & Doa Restu Tamu -->
-    <section class="section rsvp-section">
+    <section class="section rsvp-section anim-scroll">
       <h3 class="section-title">Konfirmasi &amp; Doa Restu</h3>
       
-      <form id="rsvp-form" class="rsvp-form">
+      <form id="rsvp-form" class="rsvp-form anim-scroll">
         <div class="form-group">
           <label for="rsvp-name">Nama Anda</label>
           <input type="text" id="rsvp-name" required placeholder="Tuliskan nama Anda" />
@@ -175,7 +179,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer anim-scroll">
       <div class="monogram-inline footer-monogram">
         <span>T &amp; A</span>
       </div>
