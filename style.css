@@ -1,14 +1,14 @@
-/* Reset & Variabel Warna Tema */
 :root {
-  --primary: #c5a059; /* Gold Elegan */
-  --primary-dark: #9d7c38;
-  --bg-color: #faf8f5; /* Warm White */
+  --primary: #8b5a2b; /* Cokelat Kayu Joglo */
+  --primary-gold: #c29849; /* Aksen Emas Teduh */
+  --bg-creme: #fdfbf7;
   --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-muted: #666666;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Montserrat', sans-serif;
-  --font-script: 'Alex Brush', cursive;
+  --text-dark: #2c2523;
+  --text-muted: #6e655f;
+  --font-title: 'Cinzel', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-monogram: 'Pinyon Script', cursive;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
 * {
@@ -18,32 +18,81 @@
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: #2b2b2b; /* Latar belakang luar kontainer saat di layar desktop */
-  color: var(--text-main);
+  font-family: var(--font-body);
+  background-color: #1f1b18;
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
-/* Kunci Lebar Tampilan Mobile */
 .main-container {
   max-width: 480px;
   margin: 0 auto;
-  background-color: var(--bg-color);
+  background-color: var(--bg-creme);
   min-height: 100vh;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.4);
   position: relative;
   overflow-x: hidden;
 }
 
-/* LAYAR COVER AWAL */
+/* MONOGRAM INISIAL (T & A) */
+.monogram-badge {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--primary-gold);
+  outline: 4px double rgba(194, 152, 73, 0.5);
+  outline-offset: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(20, 16, 12, 0.6) 0%, rgba(20, 16, 12, 0.9) 100%);
+}
+
+.monogram-text {
+  font-family: var(--font-monogram);
+  font-size: 2.8rem;
+  color: #ffd68a;
+  letter-spacing: 2px;
+  padding-top: 4px;
+  text-shadow: 0 0 10px rgba(194, 152, 73, 0.6);
+}
+
+.monogram-inline {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-gold);
+  outline: 3px double rgba(194, 152, 73, 0.4);
+  outline-offset: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.monogram-inline span {
+  font-family: var(--font-monogram);
+  font-size: 2.2rem;
+  color: var(--primary);
+  padding-top: 2px;
+}
+
+.footer-monogram {
+  background: transparent;
+  margin-bottom: 12px;
+}
+
+/* LAYAR SAMPUL (COVER) */
 .cover-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-              url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80') center/cover;
+  background: linear-gradient(rgba(20, 16, 12, 0.8), rgba(20, 16, 12, 0.8)),
+              url('https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcT7JM6onU-Y2dfYP3v0xe2gZSaD4IRTMa3gvDf8eyjG0z2eWr6Mrdf6ltD770fnFxLUubJFdEzotus9oxE') center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,50 +113,59 @@ body {
 }
 
 .cover-content .sub-title {
-  letter-spacing: 4px;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  color: #eed6aa;
+  margin-bottom: 6px;
 }
 
 .couple-name {
   font-family: var(--font-script);
-  font-size: 3.5rem;
-  color: var(--primary);
-  margin-bottom: 24px;
+  font-size: 3.4rem;
+  color: #ffffff;
+  margin: 4px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.event-brief {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 22px;
 }
 
 .guest-box {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
   padding: 16px 24px;
   border-radius: 12px;
-  margin-bottom: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 26px;
+  border: 1px solid rgba(245, 219, 170, 0.25);
 }
 
 .guest-box p {
   font-size: 0.8rem;
-  color: #e0e0e0;
+  color: #e5ded4;
 }
 
 .guest-box h3 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  color: #ffd68a;
   margin-top: 4px;
 }
 
-/* Tombol Musik Mengambang */
+/* TOMBOL AUDIO */
 .music-btn {
   position: fixed;
   bottom: 24px;
   right: 24px;
   background: var(--primary);
   color: #fff;
-  border: none;
+  border: 2px solid var(--primary-gold);
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   z-index: 100;
   display: flex;
@@ -125,220 +183,253 @@ body {
   to { transform: rotate(359deg); }
 }
 
-/* SECTIONS */
+/* SEKSI KONTEN */
 .section {
-  padding: 50px 24px;
+  padding: 46px 22px;
   text-align: center;
 }
 
 .section-title {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  color: var(--primary-dark);
+  font-family: var(--font-title);
+  font-size: 1.55rem;
+  letter-spacing: 2px;
+  color: var(--primary);
   margin-bottom: 24px;
-  position: relative;
 }
 
 .hero {
-  padding-top: 70px;
-  background: linear-gradient(180deg, #f3ede2 0%, var(--bg-color) 100%);
+  padding: 34px 22px 28px;
+  background: linear-gradient(180deg, #ede3d5 0%, var(--bg-creme) 100%);
+}
+
+.joglo-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  border: 2px solid #dfd1be;
+}
+
+.joglo-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero .greeting {
-  font-size: 0.8rem;
-  letter-spacing: 3px;
-  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .title-serif {
-  font-family: var(--font-serif);
-  font-size: 2.4rem;
-  color: var(--primary-dark);
-  margin: 8px 0;
+  font-family: var(--font-script);
+  font-size: 3.2rem;
+  color: var(--primary);
+  margin: 2px 0 6px;
 }
 
 .date-hero {
   font-size: 0.95rem;
-  font-weight: 600;
   color: var(--text-muted);
 }
 
 .quote-section {
   background-color: #fff;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid #ebdccb;
+  border-bottom: 1px solid #ebdccb;
 }
 
 .quote {
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .quote-source {
   display: block;
-  margin-top: 12px;
+  margin-top: 10px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--primary);
 }
 
-/* Mempelai */
-.avatar-circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: #f1ebd9;
-  color: var(--primary-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 12px;
-  font-size: 2.2rem;
-  border: 2px solid var(--primary);
+/* MEMPELAI */
+.profile-card {
+  background: #ffffff;
+  padding: 20px 16px;
+  border-radius: 12px;
+  border: 1px solid #ebdccb;
+  box-shadow: 0 4px 12px rgba(139, 90, 43, 0.05);
 }
 
 .profile-card h4 {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  color: var(--text-main);
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.profile-card .role-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
 }
 
 .profile-card .parents {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.divider-ampersand {
-  font-family: var(--font-script);
-  font-size: 3rem;
-  color: var(--primary);
-  margin: 16px 0;
+.divider-gunungan {
+  font-size: 1.8rem;
+  color: var(--primary-gold);
+  margin: 14px 0;
 }
 
-/* Countdown */
+/* COUNTDOWN */
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .time-box {
   background: var(--card-bg);
-  padding: 12px 6px;
+  padding: 12px 4px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid #eedec3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2d1be;
 }
 
 .time-box span {
   display: block;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  color: var(--primary-dark);
+  color: var(--primary);
 }
 
 .time-box small {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
 }
 
-/* Card Acara & Hadiah */
-.card, .bank-card {
+/* JADWAL ACARA */
+.card {
   background: var(--card-bg);
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  border: 1px solid #f0e6d6;
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  border: 1px solid #ebdccb;
 }
 
-.card-icon {
-  font-size: 2rem;
+.highlight-card {
+  border: 1.5px solid var(--primary-gold);
+  background: #fffdfa;
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background: #f7ede1;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 1.3rem;
+}
+
+.card h4 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.time-text {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.location-name {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.address {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.btn-location {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 9px 20px;
+  border-radius: 25px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: #f5eedf;
+  color: var(--primary);
+  border: 1px solid var(--primary-gold);
+}
+
+/* UNGKAPAN TANPA TALI ASIH */
+.blessing-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 26px 20px;
+  border: 1px solid #e8dac9;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+}
+
+.blessing-icon {
+  font-size: 2.2rem;
+  color: var(--primary-gold);
+  margin-bottom: 12px;
+}
+
+.blessing-card h4 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  letter-spacing: 1px;
   color: var(--primary);
   margin-bottom: 10px;
 }
 
-.card h4 {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-}
-
-.card .address {
-  font-size: 0.85rem;
+.blessing-card p {
+  font-size: 0.86rem;
   color: var(--text-muted);
-  margin: 8px 0 16px;
+  line-height: 1.7;
 }
 
-.bank-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 700;
-  color: var(--primary-dark);
-  margin-bottom: 12px;
+.blessing-card .no-gift-text {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #e2d1be;
+  font-style: italic;
+  color: var(--primary);
+  font-weight: 500;
 }
 
-.account-num {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.account-name {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-}
-
-/* Tombol */
-.btn-primary, .btn-outline, .btn-copy {
-  display: inline-block;
-  padding: 10px 24px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: #fff;
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-dark);
-}
-
-.btn-outline {
-  border: 1px solid var(--primary);
-  color: var(--primary-dark);
-  background: transparent;
-}
-
-.btn-copy {
-  background-color: #f7f3ea;
-  border: 1px dashed var(--primary);
-  color: var(--primary-dark);
-  width: 100%;
-}
-
-.full-width {
-  width: 100%;
-}
-
-/* Form RSVP */
+/* FORM RSVP */
 .rsvp-form {
   background: var(--card-bg);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 22px;
+  border-radius: 14px;
   text-align: left;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  border: 1px solid #ebdccb;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
 .form-group {
@@ -354,31 +445,56 @@ body {
 
 .form-group input, .form-group select, .form-group textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 10px 12px;
+  border: 1px solid #dfd1be;
   border-radius: 6px;
   font-family: inherit;
   font-size: 0.9rem;
+  background: #fdfbf7;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 11px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: var(--primary);
+  color: #fff;
+  border: 1px solid var(--primary-gold);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #6d441e;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .wishes-container {
   margin-top: 24px;
   text-align: left;
-  max-height: 250px;
+  max-height: 260px;
   overflow-y: auto;
 }
 
 .wish-item {
   background: #fff;
-  padding: 12px;
+  padding: 12px 14px;
   border-radius: 8px;
   margin-bottom: 10px;
   border-left: 4px solid var(--primary);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  border-top: 1px solid #f1e7da;
+  border-right: 1px solid #f1e7da;
+  border-bottom: 1px solid #f1e7da;
 }
 
 .wish-item h5 {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   display: flex;
   justify-content: space-between;
 }
@@ -386,29 +502,41 @@ body {
 .badge {
   font-size: 0.7rem;
   font-weight: normal;
-  padding: 2px 6px;
+  padding: 2px 8px;
   border-radius: 4px;
-  background: #eee;
 }
 
-.badge.hadir { background: #e2f7e2; color: #1e7e34; }
-.badge.ragu { background: #fff3cd; color: #856404; }
-.badge.tidak { background: #f8d7da; color: #721c24; }
+.badge.hadir { background: #e3f5e5; color: #1e7e34; }
+.badge.ragu { background: #fdf3cd; color: #856404; }
+.badge.tidak { background: #fbe6e8; color: #721c24; }
 
 .wish-item p {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
   margin-top: 4px;
 }
 
+/* FOOTER */
 .footer {
-  padding: 40px 24px;
+  padding: 40px 20px;
   text-align: center;
-  background: #f1ebd9;
+  background: #eee4d5;
+}
+
+.footer-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.family-note {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 6px 0 14px;
+  line-height: 1.5;
 }
 
 .couple-footer {
   font-family: var(--font-script);
-  font-size: 2.2rem;
-  color: var(--primary-dark);
+  font-size: 2.8rem;
+  color: var(--primary);
 }
