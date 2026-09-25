@@ -1,13 +1,14 @@
 :root {
-  --primary: #8b5a2b; /* Cokelat Kayu Joglo */
-  --primary-gold: #c29849; /* Aksen Emas Teduh */
+  --primary: #8b5a2b; /* Cokelat Kayu Klasik */
+  --primary-gold: #c29849; /* Aksen Emas */
+  --gold-glow: #f6d285;
   --bg-creme: #fdfbf7;
   --card-bg: #ffffff;
   --text-dark: #2c2523;
   --text-muted: #6e655f;
   --font-title: 'Cinzel', serif;
   --font-script: 'Great Vibes', cursive;
-  --font-monogram: 'Pinyon Script', cursive;
+  --font-serif-bold: 'Playfair Display', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -19,7 +20,7 @@
 
 body {
   font-family: var(--font-body);
-  background-color: #1f1b18;
+  background-color: #1a1614;
   color: var(--text-dark);
   line-height: 1.6;
 }
@@ -29,70 +30,98 @@ body {
   margin: 0 auto;
   background-color: var(--bg-creme);
   min-height: 100vh;
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.45);
   position: relative;
   overflow-x: hidden;
 }
 
-/* MONOGRAM INISIAL (T & A) */
+/* ====================================================
+   ANIMASI SCROLL REVEAL (MUNCUL HALUS SAAT DI-SCROLL)
+==================================================== */
+.anim-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.anim-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====================================================
+   SIMBOL MONOGRAM T & A (JELAS, TEGAS & ELEGAN)
+==================================================== */
 .monogram-badge {
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 16px;
+  width: 105px;
+  height: 105px;
+  margin: 0 auto 18px;
   border-radius: 50%;
-  border: 1.5px solid var(--primary-gold);
-  outline: 4px double rgba(194, 152, 73, 0.5);
-  outline-offset: 3px;
+  background: linear-gradient(145deg, #241d18, #120e0b);
+  border: 3px solid var(--primary-gold);
+  box-shadow: 0 0 0 4px rgba(194, 152, 73, 0.3), 
+              0 8px 24px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, rgba(20, 16, 12, 0.6) 0%, rgba(20, 16, 12, 0.9) 100%);
+  gap: 4px;
 }
 
-.monogram-text {
-  font-family: var(--font-monogram);
-  font-size: 2.8rem;
-  color: #ffd68a;
-  letter-spacing: 2px;
-  padding-top: 4px;
-  text-shadow: 0 0 10px rgba(194, 152, 73, 0.6);
+.monogram-char {
+  font-family: var(--font-serif-bold);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #ffdca3;
+  text-shadow: 0 2px 8px rgba(246, 210, 133, 0.6);
+  letter-spacing: -1px;
+}
+
+.monogram-amp {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary-gold);
 }
 
 .monogram-inline {
-  width: 70px;
-  height: 70px;
+  width: 76px;
+  height: 76px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  border: 1px solid var(--primary-gold);
-  outline: 3px double rgba(194, 152, 73, 0.4);
-  outline-offset: 3px;
+  background: #ffffff;
+  border: 2px solid var(--primary-gold);
+  box-shadow: 0 0 0 3px rgba(194, 152, 73, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
 }
 
 .monogram-inline span {
-  font-family: var(--font-monogram);
-  font-size: 2.2rem;
+  font-family: var(--font-serif-bold);
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--primary);
-  padding-top: 2px;
+  letter-spacing: 1px;
 }
 
 .footer-monogram {
   background: transparent;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-/* LAYAR SAMPUL (COVER) */
+/* ====================================================
+   LAYAR SAMPUL (COVER)
+==================================================== */
 .cover-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(20, 16, 12, 0.8), rgba(20, 16, 12, 0.8)),
-              url('https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcT7JM6onU-Y2dfYP3v0xe2gZSaD4IRTMa3gvDf8eyjG0z2eWr6Mrdf6ltD770fnFxLUubJFdEzotus9oxE') center/cover;
+  background: linear-gradient(rgba(18, 14, 11, 0.82), rgba(18, 14, 11, 0.82)),
+              url('https://static.vecteezy.com/system/resources/previews/038/450/604/non_2x/rumah-joglo-traditional-central-java-indonesia-house-cartoon-hand-drawn-illustration-free-vector.jpg') center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,16 +191,16 @@ body {
   background: var(--primary);
   color: #fff;
   border: 2px solid var(--primary-gold);
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
   cursor: pointer;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 
 .spin {
@@ -183,7 +212,9 @@ body {
   to { transform: rotate(359deg); }
 }
 
-/* SEKSI KONTEN */
+/* ====================================================
+   SEKSI KONTEN & JOGLO
+==================================================== */
 .section {
   padding: 46px 22px;
   text-align: center;
@@ -204,18 +235,20 @@ body {
 
 .joglo-wrapper {
   width: 100%;
-  height: 200px;
-  border-radius: 14px;
+  height: 220px;
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 20px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   border: 2px solid #dfd1be;
+  background-color: #f7f2ea;
 }
 
 .joglo-hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .hero .greeting {
