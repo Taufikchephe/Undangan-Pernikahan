@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Ambil Nama Tamu dari URL (?to=Nama+Tamu)
+  // 1. Ambil Nama Tamu dari parameter URL (?to=Nama+Tamu)
   const urlParams = new URLSearchParams(window.location.search);
   const guestName = urlParams.get('to');
   if (guestName) {
-    document.getElementById('guest-name').innerText = guestName;
+    const elGuest = document.getElementById('guest-name');
+    if (elGuest) elGuest.innerText = guestName;
     const rsvpNameField = document.getElementById('rsvp-name');
-    if (rsvpNameField) {
-      rsvpNameField.value = guestName;
-    }
+    if (rsvpNameField) rsvpNameField.value = guestName;
   }
 
   // 2. Tombol Buka Undangan & Autoplay Audio
@@ -17,33 +16,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const musicToggle = document.getElementById('music-toggle');
   let isPlaying = false;
 
-  btnOpen.addEventListener('click', () => {
-    cover.classList.add('hide');
-    
-    // Putar musik saat user menekan tombol (sesuai aturan browser)
-    bgMusic.play().then(() => {
-      isPlaying = true;
-    }).catch(err => {
-      console.log("Audio autoplay dicegah browser:", err);
+  if (btnOpen && cover) {
+    btnOpen.addEventListener('click', () => {
+      cover.classList.add('hide');
+
+      if (bgMusic) {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          if (musicToggle) {
+            const icon = musicToggle.querySelector('i');
+            if (icon) icon.classList.add('spin');
+          }
+        }).catch(err => {
+          console.warn("Autoplay audio tertahan izin browser:", err);
+        });
+      }
     });
-  });
+  }
 
   // 3. Tombol Toggle Musik Mengambang
-  musicToggle.addEventListener('click', () => {
-    const icon = musicToggle.querySelector('i');
-    if (isPlaying) {
-      bgMusic.pause();
-      icon.classList.remove('spin');
-      isPlaying = false;
-    } else {
-      bgMusic.play();
-      icon.classList.add('spin');
-      isPlaying = true;
-    }
-  });
+  if (musicToggle && bgMusic) {
+    musicToggle.addEventListener('click', () => {
+      const icon = musicToggle.querySelector('i');
+      if (isPlaying) {
+        bgMusic.pause();
+        if (icon) icon.classList.remove('spin');
+        isPlaying = false;
+      } else {
+        bgMusic.play();
+        if (icon) icon.classList.add('spin');
+        isPlaying = true;
+      }
+    });
+  }
 
-  // 4. Hitung Mundur (Target: 12 Desember 2027)
-  const targetDate = new Date("December 12, 2027 08:00:00").getTime();
+  // 4. Hitung Mundur Menuju Hari H (26 November 2026, 09.00 WIB)
+  const targetDate = new Date("November 26, 2026 09:00:00").getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -55,24 +63,30 @@ document.addEventListener('DOMContentLoaded', () => {
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-      document.getElementById('days').innerText = String(days).padStart(2, '0');
-      document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-      document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+      const dEl = document.getElementById('days');
+      const hEl = document.getElementById('hours');
+      const mEl = document.getElementById('minutes');
+      const sEl = document.getElementById('seconds');
+
+      if (dEl) dEl.innerText = String(days).padStart(2, '0');
+      if (hEl) hEl.innerText = String(hours).padStart(2, '0');
+      if (mEl) mEl.innerText = String(minutes).padStart(2, '0');
+      if (sEl) sEl.innerText = String(seconds).padStart(2, '0');
     }
   }
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // 5. Fitur Buku Tamu / RSVP (Tersimpan di LocalStorage browser)
+  // 5. Fitur Buku Tamu / Konfirmasi Kehadiran
   const rsvpForm = document.getElementById('rsvp-form');
   const wishesList = document.getElementById('wishes-list');
 
-  let wishes = JSON.parse(localStorage.getItem('wedding_wishes')) || [
-    { name: "Budi Santoso", status: "Hadir", message: "Selamat menempuh hidup baru! Semoga samawa." }
+  let wishes = JSON.parse(localStorage.getItem('wedding_wishes_taufik_ayuk')) || [
+    { name: "Keluarga Besar", status: "Hadir", message: "Ndherek mangayubagya Mas Taufik & Mbak Ayuk, mugi dados keluarga ingkang sakinah mawaddah warahmah." }
   ];
 
   function renderWishes() {
+    if (!wishesList) return;
     wishesList.innerHTML = '';
     wishes.slice().reverse().forEach(item => {
       let badgeClass = 'hadir';
@@ -89,35 +103,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  rsvpForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('rsvp-name').value.trim();
-    const status = document.getElementById('rsvp-status').value;
-    const message = document.getElementById('rsvp-message').value.trim();
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('rsvp-name').value.trim();
+      const status = document.getElementById('rsvp-status').value;
+      const message = document.getElementById('rsvp-message').value.trim();
 
-    if (name && message) {
-      wishes.push({ name, status, message });
-      localStorage.setItem('wedding_wishes', JSON.stringify(wishes));
-      renderWishes();
-      document.getElementById('rsvp-message').value = '';
-      alert('Terima kasih atas doa restu Anda!');
-    }
-  });
+      if (name && message) {
+        wishes.push({ name, status, message });
+        localStorage.setItem('wedding_wishes_taufik_ayuk', JSON.stringify(wishes));
+        renderWishes();
+        document.getElementById('rsvp-message').value = '';
+        alert('Matur nuwun, doa restu panjenengan sampun katampi!');
+      }
+    });
+  }
 
   renderWishes();
 });
 
-// 6. Fungsi Salin Nomor Rekening
-function salinRekening(elementId) {
-  const nomor = document.getElementById(elementId).innerText;
-  navigator.clipboard.writeText(nomor).then(() => {
-    alert("Nomor rekening berhasil disalin: " + nomor);
-  }).catch(() => {
-    alert("Gagal menyalin. Silakan salin manual.");
-  });
-}
-
-// Pencegah XSS sederhana untuk formulir
 function escapeHtml(text) {
   const map = {
     '&': '&amp;',
