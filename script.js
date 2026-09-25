@@ -9,18 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rsvpNameField) rsvpNameField.value = guestName;
   }
 
-  // 2. Tombol Buka Undangan & Autoplay Audio
+  // 2. Tombol Buka Undangan & Autoplay Musik (Mulai dari detik ke-56)
   const btnOpen = document.getElementById('btn-open');
   const cover = document.getElementById('cover');
   const bgMusic = document.getElementById('bg-music');
   const musicToggle = document.getElementById('music-toggle');
   let isPlaying = false;
 
+  // Set detik awal lagu (detik ke-56: "Di situlah mengapa jatuh cinta...")
+  const REFF_START_SECONDS = 56;
+
   if (btnOpen && cover) {
     btnOpen.addEventListener('click', () => {
       cover.classList.add('hide');
 
       if (bgMusic) {
+        // Loncat ke menit 00:56
+        bgMusic.currentTime = REFF_START_SECONDS;
+
         bgMusic.play().then(() => {
           isPlaying = true;
           if (musicToggle) {
@@ -77,12 +83,26 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // 5. Fitur Buku Tamu / Konfirmasi Kehadiran
+  // 5. Animasi Saat di-Scroll (Intersection Observer)
+  const scrollElements = document.querySelectorAll('.anim-scroll');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {
+    threshold: 0.15 // Animasi aktif saat 15% elemen sudah masuk layar
+  });
+
+  scrollElements.forEach(el => observer.observe(el));
+
+  // 6. Fitur Buku Tamu / Konfirmasi Kehadiran
   const rsvpForm = document.getElementById('rsvp-form');
   const wishesList = document.getElementById('wishes-list');
 
   let wishes = JSON.parse(localStorage.getItem('wedding_wishes_taufik_ayuk')) || [
-    { name: "Keluarga Besar", status: "Hadir", message: "Ndherek mangayubagya Mas Taufik & Mbak Ayuk, mugi dados keluarga ingkang sakinah mawaddah warahmah." }
+    { name: "Keluarga Besar", status: "Hadir", message: "Ndherek mangayubagya Mas Taufik & Mbak Ayuk, mugi lancar sedayanipun lan berkah tansah pinaringan." }
   ];
 
   function renderWishes() {
