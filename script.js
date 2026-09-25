@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let isPlaying = false;
 
   // Set detik awal lagu (detik ke-56: "Di situlah mengapa jatuh cinta...")
-  const REFF_START_SECONDS = 00;
+  const REFF_START_SECONDS = 01;
 
   if (btnOpen && cover) {
     btnOpen.addEventListener('click', () => {
